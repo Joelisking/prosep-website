@@ -22,3 +22,36 @@ export const partnersData = [
   { id: 4, src: partnerImg4, alt: 'Partner 4' },
   { id: 5, src: partnerImg5, alt: 'Partner 5' },
 ];
+
+export const teamData = [
+  {
+    name: 'John Doe',
+    role: 'CEO',
+    image: '/about/team/1.png',
+  },
+  {
+    name: 'Jane Doe',
+    role: 'CTO',
+    image: '/about/team/2.png',
+  },
+  {
+    name: 'Jim Doe',
+    role: 'CFO',
+    image: '/about/team/3.png',
+  },
+  {
+    name: 'Jill Doe',
+    role: 'COO',
+    image: '/about/team/4.png',
+  },
+  {
+    name: 'Jack Doe',
+    role: 'CEO',
+    image: '/about/avatar-male.jpg',
+  },
+  {
+    name: 'Jonah Doe',
+    role: 'COO',
+    image: '/about/avatar-male.jpg',
+  },
+];

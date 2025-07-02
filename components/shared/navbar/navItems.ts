@@ -9,8 +9,10 @@ export const navItems: NavItem[] = [
   {
     text: 'Services',
     subItems: [
-      { text: 'Who We Are', url: '/who-are-we' },
-      { text: 'What We Do', url: '/what-we-do' },
+      { text: 'Mining & General Industry', url: '/mining' },
+      { text: 'Pumps', url: '/pumps' },
+      { text: 'ABUS Security Systems', url: '/security-systems' },
+      { text: 'Laboratory Equipment', url: '/laboratory-equipment' },
     ],
   },
   {

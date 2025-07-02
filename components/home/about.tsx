@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Icon } from '../ui';
 import Image from 'next/image';
 import Container from '../shared/container';
+import Link from 'next/link';
 
 function HomeAbout() {
   return (
@@ -18,9 +19,11 @@ function HomeAbout() {
               very beginning of our process till you have your desired
               goods in hand. We always put our customers first,
             </p>
-            <Button className="mt-4 bg-white text-black">
-              Read More <Icon name="MoveRight" />
-            </Button>
+            <Link href="/about">
+              <Button className="mt-4 bg-white hover:bg-white/90 transition-all duration-300 text-black">
+                Read More <Icon name="MoveRight" />
+              </Button>
+            </Link>
           </div>
           <div className="w-1/2 rounded-2xl overflow-hidden">
             <Image
