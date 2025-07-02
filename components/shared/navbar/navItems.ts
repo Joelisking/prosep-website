@@ -9,10 +9,16 @@ export const navItems: NavItem[] = [
   {
     text: 'Services',
     subItems: [
-      { text: 'Mining & General Industry', url: '/mining' },
-      { text: 'Pumps', url: '/pumps' },
-      { text: 'ABUS Security Systems', url: '/security-systems' },
-      { text: 'Laboratory Equipment', url: '/laboratory-equipment' },
+      {
+        text: 'ABUS Security Systems',
+        url: '/services/security-systems',
+      },
+      { text: 'Mining & General Industry', url: '#' },
+      { text: 'Pumps', url: '#' },
+      {
+        text: 'Laboratory Instruments',
+        url: '/services/laboratory-instruments',
+      },
     ],
   },
   {
