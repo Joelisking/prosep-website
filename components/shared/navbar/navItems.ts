@@ -13,8 +13,11 @@ export const navItems: NavItem[] = [
         text: 'ABUS Security Systems',
         url: '/services/security-systems',
       },
-      { text: 'Mining & General Industry', url: '#' },
-      { text: 'Pumps', url: '#' },
+      {
+        text: 'Mining & General Industry',
+        url: '/services/mining-general-industry',
+      },
+      { text: 'Pumps', url: '/services/pumps' },
       {
         text: 'Laboratory Instruments',
         url: '/services/laboratory-instruments',

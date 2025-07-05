@@ -8,16 +8,16 @@ function AvailableSecurity() {
       <Container>
         <div>
           <SectionHeader
-            highlightedWord="Laboratory Instruments"
+            highlightedWord="Security Systems"
             className="leading-snug hidden lg:block"
             size="base">
-            Available Laboratory Instruments
+            Available Security Systems
           </SectionHeader>
           <SectionHeader
-            highlightedWord="Laboratory Instruments"
+            highlightedWord="Security Systems"
             className="leading-snug lg:hidden"
             size="md">
-            Available Laboratory Instruments
+            Available Security Systems
           </SectionHeader>
 
           <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -56,7 +56,7 @@ function AvailableSecurity() {
                 </span>
 
                 <div className="border-t border-white pt-2 md:pt-4 lg:pt-6">
-                  <span className="text-lg md:text-2xl lg:text-3xl  text-white uppercase leading-tight">
+                  <span className="text-lg md:text-2xl lg:text-3xl text-white uppercase leading-tight">
                     Smart Locks & Access
                     <br /> Control Systems
                   </span>

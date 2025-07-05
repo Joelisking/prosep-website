@@ -6,7 +6,7 @@ import { PartnerCard } from './partner-card';
 
 function Partners() {
   return (
-    <section className="bg-secondary py-12 mt-32">
+    <section className="bg-secondary py-8 sm:py-12 lg:py-16 mt-16 sm:mt-24 lg:mt-32">
       <Container>
         <SectionHeader
           highlightedWord="International Partners"
@@ -21,7 +21,7 @@ function Partners() {
           We Have International Partners
         </SectionHeader>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 mt-8 items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8 lg:gap-12 mt-6 sm:mt-8 lg:mt-12 items-center">
           {partnersData.map((partner) => (
             <PartnerCard
               key={partner.id}
