@@ -2,6 +2,7 @@ import Container from '@/components/shared/container';
 import TeamCard from './TeamCard';
 import SectionHeader from '@/components/shared/section-header';
 import { getTeam } from '@/lib/team';
+export const revalidate = 0;
 
 async function Team() {
   const team = await getTeam();
