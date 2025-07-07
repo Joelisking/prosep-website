@@ -23,7 +23,7 @@ export async function getTopProducts(
         title,
         highlightedWord,
         products[] {
-          id,
+          "id": id.current,
           name,
           category,
           imageAlt,

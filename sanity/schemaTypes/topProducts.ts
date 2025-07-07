@@ -43,15 +43,25 @@ export default defineType({
           type: 'object',
           fields: [
             defineField({
-              name: 'id',
-              title: 'Product ID',
+              name: 'name',
+              title: 'Product Name',
               type: 'string',
               validation: (Rule) => Rule.required(),
             }),
             defineField({
-              name: 'name',
-              title: 'Product Name',
-              type: 'string',
+              name: 'id',
+              title: 'Product Slug',
+              type: 'slug',
+              options: {
+                source: (doc, options) => (options.parent as {name?: string})?.name || '',
+                maxLength: 200,
+                slugify: (input) =>
+                  input
+                    .toLowerCase()
+                    .replace(/\s+/g, '-')
+                    .replace(/[^\w-]+/g, '')
+                    .slice(0, 200),
+              },
               validation: (Rule) => Rule.required(),
             }),
             defineField({
