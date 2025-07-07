@@ -1,4 +1,4 @@
-import { client, urlFor } from './sanity';
+import { client } from './sanity';
 
 export interface TopProductsData {
   page: string;
