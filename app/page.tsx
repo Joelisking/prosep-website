@@ -1,19 +1,21 @@
 import Hero from '@/components/home/hero';
 import Services from '@/components/home/services';
 import HomeAbout from '@/components/home/about';
-import TopProducts from '@/components/home/top-products';
+import TopProducts from '@/components/shared/top-products';
 import Partners from '@/components/home/partners';
+import { getTopProducts } from '@/lib/topProducts';
 // import ContactCta from '@/components/shared/contact-cta';
 
-export default function Home() {
+export default async function Home() {
+  const topProductsData = await getTopProducts('home');
+
   return (
     <main>
       <Hero />
       <Services />
       <HomeAbout />
-      <TopProducts />
+      <TopProducts data={topProductsData} />
       <Partners />
-      {/* <ContactCta /> */}
     </main>
   );
 }

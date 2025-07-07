@@ -1,10 +1,15 @@
-import TopProducts from '@/components/services/security/top-products';
+import TopProducts from '@/components/shared/top-products';
 import AvailableEquipment from '@/components/shared/available-equipment';
 import PageHero from '@/components/shared/hero';
 import OfferedServices from '@/components/shared/offered-services';
+import { getTopProducts } from '@/lib/topProducts';
 import React from 'react';
 
-function LaboratoryInstruments() {
+export default async function LaboratoryInstruments() {
+  const topProductsData = await getTopProducts(
+    'laboratory-instruments'
+  );
+
   return (
     <main>
       <PageHero title="Laboratory Instruments & Consumables." />
@@ -50,9 +55,7 @@ function LaboratoryInstruments() {
           alt: 'Laboratory Instruments & Consumables',
         }}
       />
-      <TopProducts />
+      <TopProducts data={topProductsData} className="mt-32" />
     </main>
   );
 }
-
-export default LaboratoryInstruments;

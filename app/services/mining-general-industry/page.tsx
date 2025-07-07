@@ -1,10 +1,15 @@
-import TopProducts from '@/components/services/mining/mining-top-products';
+import TopProducts from '@/components/shared/top-products';
 import AvailableEquipment from '@/components/shared/available-equipment';
 import PageHero from '@/components/shared/hero';
 import OfferedServices from '@/components/shared/offered-services';
+import { getTopProducts } from '@/lib/topProducts';
 import React from 'react';
 
-function MiningGeneralIndustry() {
+export default async function MiningGeneralIndustry() {
+  const topProductsData = await getTopProducts(
+    'mining-general-industry'
+  );
+
   return (
     <main>
       <PageHero title="Mining & General Industry." />
@@ -48,9 +53,7 @@ function MiningGeneralIndustry() {
         description="We offer a wide range of mining and general industry services to meet your needs."
       />
 
-      <TopProducts />
+      <TopProducts data={topProductsData} className="mt-32" />
     </main>
   );
 }
-
-export default MiningGeneralIndustry;
