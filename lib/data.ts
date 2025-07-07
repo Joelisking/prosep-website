@@ -1,11 +1,11 @@
-import carouselImg1 from '@/public/home/carousel/1.png';
+import carouselImg1 from '@/public/home/about.png';
 import carouselImg2 from '@/public/home/carousel/2.png';
 import carouselImg3 from '@/public/home/carousel/3.webp';
 
 export const carouselImages = [
+  { src: carouselImg3, alt: 'Hero Image 3' },
   { src: carouselImg1, alt: 'Hero Image 1' },
   { src: carouselImg2, alt: 'Hero Image 2' },
-  { src: carouselImg3, alt: 'Hero Image 3' },
 ];
 
 // Partners data
