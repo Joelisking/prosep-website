@@ -7,6 +7,7 @@ import FormField from './FormField';
 
 function Form() {
   const [isEmailSubmitting, setIsEmailSubmitting] = useState(false);
+
   const [isWhatsAppSubmitting, setIsWhatsAppSubmitting] =
     useState(false);
 
@@ -14,94 +15,84 @@ function Form() {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
+    mode: 'onChange',
   });
 
   const onSubmitEmail = async (data: FormSchema) => {
     setIsEmailSubmitting(true);
 
     try {
-      // Send to both Web3Forms access keys
-      const accessKeys = [
-        'a62e0c87-d3ce-4437-bfbb-3346c5743e9d',
-        // 'e1527b4a-c7bc-49c4-ac44-45e6e1940e0d',
-      ];
-
-      const formData = {
-        name: data.name,
-        email: data.email,
-        phone: data.phone,
-        subject: data.subject || 'Contact Form Submission',
-        message: data.message,
-      };
-
-      // Send to both access keys
-      const promises = accessKeys.map((accessKey) =>
-        fetch('https://api.web3forms.com/submit', {
+      // Web3Forms endpoint
+      const response = await fetch(
+        'https://api.web3forms.com/submit',
+        {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            access_key: accessKey,
-            ...formData,
+            access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+            name: data.name,
+            email: data.email,
+            phone: data.phone,
+            subject: data.subject,
+            message: data.message,
           }),
-        })
+        }
       );
 
-      const responses = await Promise.all(promises);
-      const allSuccessful = responses.every(
-        (response) => response.ok
-      );
+      const result = await response.json();
 
-      if (allSuccessful) {
-        alert('Message sent successfully via email!');
+      if (result.success) {
         reset();
       } else {
-        throw new Error(
-          'Failed to send email to one or more recipients'
-        );
+        // Show the specific error message from Web3Forms
+        console.error('Web3Forms error:', result);
       }
     } catch (error) {
-      console.error('Error sending email:', error);
-      alert('Failed to send email. Please try again.');
+      console.error('Form submission error:', error);
     } finally {
       setIsEmailSubmitting(false);
     }
   };
 
   const onSubmitWhatsApp = (data: FormSchema) => {
+    if (!isValid) return;
+
     setIsWhatsAppSubmitting(true);
 
     try {
-      // Format the message for WhatsApp
-      const whatsappMessage =
-        `*New Contact Form Submission*\n\n` +
-        `*Name:* ${data.name}\n` +
-        `*Email:* ${data.email}\n` +
-        `*Phone:* ${data.phone}\n` +
-        (data.subject ? `*Subject:* ${data.subject}\n` : '') +
-        `*Message:* ${data.message}`;
+      // Format WhatsApp message
+      const whatsappMessage = [
+        '*New Contact Form Submission*',
+        `*Name:* ${data.name}`,
+        `*Email:* ${data.email}`,
+        `*Phone:* ${data.phone}`,
+        ...(data.subject ? [`*Subject:* ${data.subject}`] : []),
+        `*Message:* ${data.message}`,
+      ].join('\n');
 
-      // Encode the message for URL
-      const encodedMessage = encodeURIComponent(whatsappMessage);
+      // WhatsApp number (Ghana format without leading 0 or +)
+      const whatsappNumber = '233594765977';
 
-      // WhatsApp number (using the one from Info component)
-      const whatsappNumber = '233594765977'; // Removed the leading 0 and + for WhatsApp API
-
-      // Open WhatsApp link
+      // Open WhatsApp
       window.open(
-        `https://wa.me/${whatsappNumber}?text=${encodedMessage}`,
-        '_blank'
+        `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+          whatsappMessage
+        )}`,
+        '_blank',
+        'noopener noreferrer'
       );
 
-      // Reset the form
       reset();
     } catch (error) {
-      console.error('Error opening WhatsApp:', error);
-      alert('Failed to open WhatsApp. Please try again.');
+      console.error('WhatsApp error:', error);
+      alert(
+        'Failed to open WhatsApp. Please ensure your browser allows pop-ups.'
+      );
     } finally {
       setIsWhatsAppSubmitting(false);
     }
@@ -113,9 +104,7 @@ function Form() {
         Get in touch using the form below
       </h2>
 
-      <form
-        onSubmit={handleSubmit(onSubmitEmail)}
-        className="mt-8 sm:mt-12 space-y-6 flex-1">
+      <form className="mt-8 sm:mt-12 space-y-6 flex-1">
         <FormField
           name="name"
           placeholder="Your name"
@@ -150,7 +139,8 @@ function Form() {
 
         <div className="flex flex-col sm:flex-row gap-4">
           <button
-            type="submit"
+            type="button"
+            onClick={handleSubmit(onSubmitEmail)}
             disabled={isEmailSubmitting}
             className="flex-1 bg-primary py-3 px-6 rounded-full text-black hover:bg-primary/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
             {isEmailSubmitting
