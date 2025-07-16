@@ -5,25 +5,27 @@ export const CategoryProductCard: React.FC<{
   product: CategoryProduct;
 }> = ({ product }) => {
   return (
-    <div className="flex flex-col hover:shadow-xl transition-all duration-300 rounded-xl overflow-hidden bg-gray-100">
-      <div className="flex items-center justify-center mb-2 w-full h-48 bg-white">
+    <div className="flex flex-col transition-all duration-300 rounded-xl overflow-hidden">
+      <div className="flex items-center justify-center mb-2 w-full h-32 sm:h-40 lg:h-48 bg-transparent">
         <Image
           src={product.imageSrc}
           alt={product.imageAlt}
           width={160}
           height={160}
-          className={`w-full h-full ${
+          className={`w-full h-full p-4 sm:p-6 lg:p-7 ${
             product.showFullImage ? 'object-contain' : 'object-cover'
           }`}
         />
       </div>
 
-      <div className="flex flex-col flex-grow p-3 mb-2">
-        <h3 className="font-bold text-base lg:text-xl text-gray-900">
-          {product.name}
+      <div className="flex flex-col flex-grow">
+        <h3 className="font-bold text-sm sm:text-base lg:text-xl text-white text-center">
+          <span className="border-b border-[#CE0C24]">
+            {product.name}
+          </span>
         </h3>
         {product.description && (
-          <p className="text-gray-600 text-sm leading-relaxed">
+          <p className="text-white text-xs sm:text-sm leading-relaxed mt-1 text-center">
             {product.description}
           </p>
         )}
