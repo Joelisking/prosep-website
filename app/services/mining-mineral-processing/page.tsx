@@ -1,5 +1,5 @@
 import TopProducts from '@/components/shared/top-products';
-import AvailableEquipment from '@/components/shared/available-equipment';
+import ServiceCategories from '@/components/shared/service-categories';
 import PageHero from '@/components/shared/hero';
 import OfferedServices from '@/components/shared/offered-services';
 import { getTopProducts } from '@/lib/topProducts';
@@ -12,28 +12,32 @@ export default async function MiningGeneralIndustry() {
 
   return (
     <main>
-      <PageHero title="Mining & General Industry." />
-      <AvailableEquipment
+      <PageHero title="Mining & Mineral Processing." />
+      <ServiceCategories
         equipment={[
           {
             id: 1,
-            title: <>Sampling Tools & Core Boxes</>,
+            title: <>Mineral Processing</>,
             imageUrl: '/services/mining/sampling-kit.jpg',
+            categorySlug: 'mineral-processing',
           },
           {
             id: 2,
-            title: <>Personal Protective Equipment</>,
+            title: <>Crushing</>,
             imageUrl: '/services/mining/ppe.jpg',
+            categorySlug: 'crushing',
           },
           {
             id: 3,
-            title: <>Screen Panels</>,
+            title: <>Milling</>,
             imageUrl: '/services/mining/screens.png',
+            categorySlug: 'milling',
           },
           {
             id: 4,
-            title: <>Leach</>,
+            title: <>Chemicals for mining: HCL, Borax, Citric acid</>,
             imageUrl: '/services/mining/leach.jpg',
+            categorySlug: 'mining-chemicals',
           },
         ]}
       />

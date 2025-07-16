@@ -14,8 +14,8 @@ export const navItems: NavItem[] = [
         url: '/services/security-systems',
       },
       {
-        text: 'Mining & General Industry',
-        url: '/services/mining-general-industry',
+        text: 'Mining & Mineral Processing',
+        url: '/services/mining-mineral-processing',
       },
       { text: 'Pumps', url: '/services/pumps' },
       {

@@ -1,5 +1,5 @@
 import TopProducts from '@/components/shared/top-products';
-import AvailableEquipment from '@/components/shared/available-equipment';
+import ServiceCategories from '@/components/shared/service-categories';
 import PageHero from '@/components/shared/hero';
 import OfferedServices from '@/components/shared/offered-services';
 import { getTopProducts } from '@/lib/topProducts';
@@ -13,7 +13,7 @@ export default async function LaboratoryInstruments() {
   return (
     <main>
       <PageHero title="Laboratory Instruments & Consumables." />
-      <AvailableEquipment
+      <ServiceCategories
         title="Available Laboratory Instruments"
         highlightedWord="Laboratory Instruments"
         equipment={[
@@ -26,6 +26,7 @@ export default async function LaboratoryInstruments() {
               </>
             ),
             imageUrl: '/services/laboratory/glassware.png',
+            categorySlug: 'glassware-microscopes-balances',
           },
           {
             id: 2,
@@ -35,16 +36,19 @@ export default async function LaboratoryInstruments() {
               </>
             ),
             imageUrl: '/services/laboratory/chemicals.png',
+            categorySlug: 'lab-chemicals-consumables',
           },
           {
             id: 3,
             title: <>Testing Equipment</>,
             imageUrl: '/services/laboratory/testing.png',
+            categorySlug: 'testing-equipment',
           },
           {
             id: 4,
             title: <>Lab Furniture & Safety Gear</>,
             imageUrl: '/services/laboratory/furniture.png',
+            categorySlug: 'lab-furniture-safety-gear',
           },
         ]}
       />

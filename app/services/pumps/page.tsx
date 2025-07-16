@@ -1,5 +1,5 @@
 import TopProducts from '@/components/shared/top-products';
-import AvailableEquipment from '@/components/shared/available-equipment';
+import ServiceCategories from '@/components/shared/service-categories';
 import PageHero from '@/components/shared/hero';
 import OfferedServices from '@/components/shared/offered-services';
 import { getTopProducts } from '@/lib/topProducts';
@@ -11,27 +11,25 @@ export default async function Pumps() {
   return (
     <main>
       <PageHero title="Pumps." />
-      <AvailableEquipment
+      <ServiceCategories
         equipment={[
           {
             id: 1,
             title: <>Surface Pumps</>,
             imageUrl: '/services/pumps/surface.jpg',
+            categorySlug: 'surface-pumps',
           },
           {
             id: 2,
             title: <>Submersible Pumps</>,
             imageUrl: '/services/pumps/submersible.jpg',
+            categorySlug: 'submersible-pumps',
           },
           {
             id: 3,
             title: <>Borehole Pumps</>,
             imageUrl: '/services/pumps/borehole.jpg',
-          },
-          {
-            id: 4,
-            title: <>Booster Sets</>,
-            imageUrl: '/services/pumps/booster.jpg',
+            categorySlug: 'borehole-pumps',
           },
         ]}
       />
