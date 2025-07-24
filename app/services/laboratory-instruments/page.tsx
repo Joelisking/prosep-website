@@ -51,6 +51,7 @@ export default async function LaboratoryInstruments() {
             categorySlug: 'lab-furniture-safety-gear',
           },
         ]}
+        baseRoute="/services/laboratory-instruments/"
       />
       <OfferedServices
         services={['Sales', 'Support']}

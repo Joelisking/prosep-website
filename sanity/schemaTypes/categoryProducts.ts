@@ -146,6 +146,13 @@ export default defineType({
               rows: 3,
             }),
             defineField({
+              name: 'subcategory',
+              title: 'Subcategory',
+              type: 'string',
+              description:
+                'Optional. Used for grouping products under subcategories (mainly for Security Systems).',
+            }),
+            defineField({
               name: 'image',
               title: 'Product Image',
               type: 'image',
@@ -153,21 +160,6 @@ export default defineType({
                 hotspot: true,
               },
               validation: (Rule) => Rule.required(),
-            }),
-            defineField({
-              name: 'imageAlt',
-              title: 'Image Alt Text',
-              type: 'string',
-              description: 'Optional. If left empty, will use the product name as alt text.',
-              initialValue: ({parent}) => (parent as {name?: string})?.name || '',
-            }),
-            defineField({
-              name: 'showFullImage',
-              title: 'Show Full Image',
-              type: 'boolean',
-              description:
-                'When enabled, the image will show the complete product without cropping. When disabled, the image will fill the container (may crop parts of the image).',
-              initialValue: false,
             }),
           ],
           preview: {

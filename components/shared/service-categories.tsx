@@ -2,10 +2,8 @@
 
 import Container from '@/components/shared/container';
 import SectionHeader from '@/components/shared/section-header';
-import CategoryProductsDialog from '@/components/shared/category-products-dialog';
-import { getCategoryProducts } from '@/lib/categoryProducts';
-import { CategoryProductsData } from '@/lib/categoryProducts';
-import React, { useState } from 'react';
+import React from 'react';
+import { useRouter } from 'next/navigation';
 
 interface EquipmentItem {
   id: number;
@@ -20,6 +18,7 @@ interface AvailableEquipmentProps {
   highlightedWord?: string;
   equipment: EquipmentItem[];
   className?: string;
+  baseRoute?: string;
 }
 
 function ServiceCategories({
@@ -27,43 +26,16 @@ function ServiceCategories({
   highlightedWord = 'Equipment',
   equipment,
   className = '',
+  baseRoute = '/services/security-systems/',
 }: AvailableEquipmentProps) {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [selectedCategoryData, setSelectedCategoryData] =
-    useState<CategoryProductsData | null>(null);
-  const [selectedCategoryTitle, setSelectedCategoryTitle] =
-    useState('');
-  const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
-  const handleCategoryClick = async (item: EquipmentItem) => {
+  const handleCategoryClick = (item: EquipmentItem) => {
     if (!item.categorySlug) {
       // If no category slug, just show a message or do nothing
       return;
     }
-
-    setIsDialogOpen(true);
-    setSelectedCategoryTitle(
-      typeof item.title === 'string'
-        ? item.title
-        : 'Category Products'
-    );
-    setLoading(true);
-    try {
-      const data = await getCategoryProducts(item.categorySlug);
-      setSelectedCategoryData(data);
-    } catch (error) {
-      console.error('Error fetching category products:', error);
-      setSelectedCategoryData(null);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleCloseDialog = () => {
-    setIsDialogOpen(false);
-    setSelectedCategoryData(null);
-    setSelectedCategoryTitle('');
-    setLoading(false);
+    router.push(`${baseRoute}${item.categorySlug}`);
   };
 
   return (
@@ -111,14 +83,6 @@ function ServiceCategories({
           </div>
         </div>
       </Container>
-
-      <CategoryProductsDialog
-        isOpen={isDialogOpen}
-        onClose={handleCloseDialog}
-        data={selectedCategoryData}
-        categoryTitle={selectedCategoryTitle}
-        loading={loading}
-      />
     </section>
   );
 }

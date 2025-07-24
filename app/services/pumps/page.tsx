@@ -32,6 +32,7 @@ export default async function Pumps() {
             categorySlug: 'borehole-pumps',
           },
         ]}
+        baseRoute="/services/pumps/"
       />
       <OfferedServices
         services={['Sales', 'Support', 'Maintenance']}

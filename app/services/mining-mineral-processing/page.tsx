@@ -40,6 +40,7 @@ export default async function MiningGeneralIndustry() {
             categorySlug: 'mining-chemicals',
           },
         ]}
+        baseRoute="/services/mining-mineral-processing/"
       />
       <OfferedServices
         services={[

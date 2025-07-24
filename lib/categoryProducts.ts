@@ -1,5 +1,49 @@
 import { client } from './sanity';
 
+// Mapping of category slugs to display titles
+const SECURITY_CATEGORY_TITLES: Record<string, string> = {
+  'security-cameras': 'Video Surveillance Systems (CCTV)',
+  'access-control': 'Smart Locks & Access Control Systems',
+  'door-window-security': 'Door and Window Security',
+  padlocks: 'Padlocks',
+  'lockout-tagout': 'Lockout Tagout',
+  'safety-equipment': 'Personal Protective Equipment',
+  'security-chains': 'Security Chains & Hasps',
+};
+
+const PUMPS_CATEGORY_TITLES: Record<string, string> = {
+  'surface-pumps': 'Surface Pumps',
+  'submersible-pumps': 'Submersible Pumps',
+  'borehole-pumps': 'Borehole Pumps',
+};
+
+const LABORATORY_CATEGORY_TITLES: Record<string, string> = {
+  'glassware-microscopes-balances':
+    'Glassware, Microscopes & Balances',
+  'lab-chemicals-consumables': 'Lab Chemicals & Consumables',
+  'testing-equipment': 'Testing Equipment',
+  'lab-furniture-safety-gear': 'Lab Furniture & Safety Gear',
+};
+
+const MINING_CATEGORY_TITLES: Record<string, string> = {
+  'mineral-processing': 'Mineral Processing',
+  crushing: 'Crushing',
+  milling: 'Milling',
+  'mining-chemicals': 'Mining Chemicals',
+};
+
+export function getCategoryDisplayTitle(
+  categorySlug: string
+): string {
+  return (
+    SECURITY_CATEGORY_TITLES[categorySlug] ||
+    PUMPS_CATEGORY_TITLES[categorySlug] ||
+    LABORATORY_CATEGORY_TITLES[categorySlug] ||
+    MINING_CATEGORY_TITLES[categorySlug] ||
+    categorySlug
+  );
+}
+
 export interface CategoryProduct {
   id: string;
   name: string;
@@ -7,6 +51,7 @@ export interface CategoryProduct {
   imageSrc: string;
   imageAlt: string;
   showFullImage?: boolean;
+  subcategory?: string;
 }
 
 export interface CategoryProductsData {
@@ -40,7 +85,8 @@ export async function getCategoryProducts(
           description,
           imageAlt,
           showFullImage,
-          "imageSrc": image.asset->url
+          "imageSrc": image.asset->url,
+          subcategory
         }
       }
     `;
