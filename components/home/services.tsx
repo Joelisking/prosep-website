@@ -24,7 +24,7 @@ function Services() {
           <ServiceCard
             title="Mining and Mineral Processing"
             description="Innovative clean energy solutions, land use optimization, and sanitation improvements."
-            image="/home/services/1.png"
+            image="/home/services/1.jpg"
             alt="Mining Equipment"
             url="/services/mining-mineral-processing"
           />

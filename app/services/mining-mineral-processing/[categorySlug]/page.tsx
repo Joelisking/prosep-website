@@ -5,6 +5,8 @@ import {
 } from '@/lib/categoryProducts';
 import React from 'react';
 import { CategoryProductCard } from '@/components/shared/category-product-card';
+import Container from '@/components/shared/container';
+import PageHero from '@/components/shared/hero';
 
 function groupBySubcategory(products: CategoryProduct[]) {
   const groups: Record<string, CategoryProduct[]> = {};
@@ -41,24 +43,29 @@ export default async function CategoryPage({
     : { All: data?.products };
 
   return (
-    <main className="p-8 bg-gradient-to-br from-[#033E86] to-[#04274C]">
-      <h1 className="text-3xl font-bold mb-6 text-white">
-        {getCategoryDisplayTitle(categorySlug)}
-      </h1>
-      {Object.entries(grouped).map(([subcat, products]) => (
-        <section key={subcat} className="mb-12">
-          {hasSubcategories && (
-            <h2 className="text-2xl font-semibold mb-4">{subcat}</h2>
-          )}
-          <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {products?.map((product) => (
-              <li key={product.id}>
-                <CategoryProductCard product={product} />
-              </li>
-            ))}
-          </ul>
-        </section>
-      ))}
+    <main>
+      <PageHero title={`${getCategoryDisplayTitle(categorySlug)}.`} />
+
+      <section className="py-16 bg-gradient-to-br from-[#033E86] to-[#04274C] relative">
+        {Object.entries(grouped).map(([subcat, products]) => (
+          <Container key={subcat}>
+            <section className="mb-12">
+              {hasSubcategories && (
+                <h2 className="text-2xl font-bold mb-4 text-white">
+                  {subcat}
+                </h2>
+              )}
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {products?.map((product) => (
+                  <div key={product.id}>
+                    <CategoryProductCard product={product} />
+                  </div>
+                ))}
+              </div>
+            </section>
+          </Container>
+        ))}
+      </section>
     </main>
   );
 }

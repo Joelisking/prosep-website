@@ -7,8 +7,8 @@ export const CategoryProductCard: React.FC<{
   return (
     <div className="flex flex-col transition-all duration-300 rounded-2xl overflow-hidden shadow-xl border border-white/10 bg-white/10 backdrop-blur-md hover:bg-white/20 hover:shadow-2xl">
       <div
-        className="flex items-center justify-center mb-4 w-full pt-10"
-        style={{ width: 160, height: 160, alignSelf: 'center' }}>
+        className="flex items-center justify-center mb-4 w-full bg-white"
+        style={{ width: '100%', height: 260, alignSelf: 'center' }}>
         <Image
           src={product.imageSrc}
           alt={product.name}
