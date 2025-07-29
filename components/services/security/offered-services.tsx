@@ -1,6 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import Container from '@/components/shared/container';
 import SectionHeader from '@/components/shared/section-header';
-import Image from 'next/image';
 import React from 'react';
 
 const services = [
@@ -67,10 +67,9 @@ function OfferedServices() {
         {/* Right Column */}
         <div className="w-full lg:w-1/2">
           <div className="relative w-full h-full">
-            <Image
+            <img
               src="/services/security/cctv.png"
               alt="Security services illustration"
-              fill
               className="rounded-2xl object-cover"
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
             />

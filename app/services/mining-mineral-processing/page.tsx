@@ -18,25 +18,25 @@ export default async function MiningGeneralIndustry() {
           {
             id: 1,
             title: <>Mineral Processing</>,
-            imageUrl: '/services/mining/sampling-kit.jpg',
+            imageUrl: '/services/mining/processing.png',
             categorySlug: 'mineral-processing',
           },
           {
             id: 2,
             title: <>Crushing</>,
-            imageUrl: '/services/mining/ppe.jpg',
+            imageUrl: '/services/mining/crushing.png',
             categorySlug: 'crushing',
           },
           {
             id: 3,
             title: <>Milling</>,
-            imageUrl: '/services/mining/screens.png',
+            imageUrl: '/services/mining/milling.png',
             categorySlug: 'milling',
           },
           {
             id: 4,
-            title: <>Chemicals for mining: HCL, Borax, Citric acid</>,
-            imageUrl: '/services/mining/leach.jpg',
+            title: <>Chemicals for mining</>,
+            imageUrl: '/services/mining/chemicals.png',
             categorySlug: 'mining-chemicals',
           },
         ]}
@@ -50,7 +50,7 @@ export default async function MiningGeneralIndustry() {
           'Gravity Audit',
         ]}
         image={{
-          src: '/services/mining/mining.png',
+          src: '/services/mining/services.png',
           alt: 'Mining & General Industry',
         }}
         title="Services We Offer"

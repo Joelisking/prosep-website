@@ -4,9 +4,9 @@ import {
   getCategoryDisplayTitle,
 } from '@/lib/categoryProducts';
 import React from 'react';
-import { CategoryProductCard } from '@/components/shared/category-product-card';
 import Container from '@/components/shared/container';
 import PageHero from '@/components/shared/hero';
+import { SecurityProductCard } from '@/components/shared/security-product-card';
 
 function groupBySubcategory(products: CategoryProduct[]) {
   const groups: Record<string, CategoryProduct[]> = {};
@@ -58,7 +58,7 @@ export default async function CategoryPage({
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {products?.map((product) => (
                   <div key={product.id}>
-                    <CategoryProductCard product={product} />
+                    <SecurityProductCard product={product} />
                   </div>
                 ))}
               </div>

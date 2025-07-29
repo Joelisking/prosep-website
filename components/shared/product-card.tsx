@@ -1,5 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
 import { Product } from '@/lib/types';
-import Image from 'next/image';
 
 export const ProductCard: React.FC<{ product: Product }> = ({
   product,
@@ -7,7 +7,7 @@ export const ProductCard: React.FC<{ product: Product }> = ({
   return (
     <div className="flex flex-col">
       <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg border border-secondary h-64 sm:h-72 md:h-80 flex items-center justify-center">
-        <Image
+        <img
           src={product.imageSrc}
           alt={product.imageAlt}
           width={500}

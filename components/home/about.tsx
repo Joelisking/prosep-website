@@ -1,6 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import { Button, Icon } from '../ui';
-import Image from 'next/image';
 import Container from '../shared/container';
 import Link from 'next/link';
 
@@ -28,7 +28,7 @@ function HomeAbout() {
             </Link>
           </div>
           <div className="w-full lg:w-1/2 rounded-2xl overflow-hidden">
-            <Image
+            <img
               src="/home/about.png"
               alt="About"
               width={500}

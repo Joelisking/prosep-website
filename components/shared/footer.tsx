@@ -1,6 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import Container from './container';
-import Image from 'next/image';
 import { Separator } from '@/components/ui/separator';
 import { Icon } from '@/components/ui';
 import Link from 'next/link';
@@ -15,7 +15,7 @@ function Footer() {
         <Container>
           <div className="flex items-center justify-between">
             <div>
-              <Image
+              <img
                 src="/logo.png"
                 alt="logo"
                 width={300}

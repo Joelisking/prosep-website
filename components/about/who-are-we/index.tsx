@@ -1,5 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
 import Container from '@/components/shared/container';
-import Image from 'next/image';
 import React from 'react';
 
 function WhoAreWe() {
@@ -12,13 +12,12 @@ function WhoAreWe() {
             <div className="max-w-lg mx-auto lg:mx-0">
               {/* Logo */}
               <div>
-                <Image
+                <img
                   src="/white-logo.svg"
                   alt="Prosep Services Ltd Logo"
                   width={244}
                   height={69}
                   className="w-48 h-auto object-contain"
-                  priority
                 />
               </div>
 
@@ -41,13 +40,11 @@ function WhoAreWe() {
 
           {/* Image Section */}
           <div className="lg:w-1/2 relative min-h-[300px] lg:min-h-[400px]">
-            <Image
+            <img
               src="/about/about.png"
               alt="Prosep Services team and facilities"
-              fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
-              priority
             />
             {/* Overlay for better text contrast */}
             <div className="absolute inset-0 bg-black/10"></div>

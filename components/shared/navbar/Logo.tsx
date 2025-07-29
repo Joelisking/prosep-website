@@ -1,18 +1,17 @@
 'use client';
 
-import Image from 'next/image';
+/* eslint-disable @next/next/no-img-element */
 import logo from '@/public/logo.png';
 import Link from 'next/link';
 
 const Logo = () => (
   <div className="">
     <Link href={'/'}>
-      <Image
-        src={logo}
+      <img
+        src={logo.src.toString()}
         width={100}
         height={100}
         alt="Society of St. Vincent de Paul"
-        priority
       />
     </Link>
   </div>

@@ -1,5 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
-import Image from 'next/image';
 import img from '@/public/LooperGroup.svg';
 import SectionHeader from '../shared/section-header';
 import Container from '../shared/container';
@@ -53,11 +53,10 @@ function AboutHero() {
 
       <div className="absolute top-0 bottom-0 right-0 h-full w-full pointer-events-none">
         <div className="relative h-full w-full">
-          <Image
+          <img
             src={img}
             alt="svg"
             className="h-full w-full object-contain object-right opacity-40 sm:opacity-60 lg:opacity-100 transition-all duration-300"
-            priority
           />
         </div>
       </div>
