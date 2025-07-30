@@ -5,6 +5,8 @@ import {
 } from '@/lib/categoryProducts';
 import React from 'react';
 import { CategoryProductCard } from '@/components/shared/category-product-card';
+import Container from '@/components/shared/container';
+import PageHero from '@/components/shared/hero';
 
 function groupBySubcategory(products: CategoryProduct[]) {
   const groups: Record<string, CategoryProduct[]> = {};
@@ -26,9 +28,7 @@ export default async function CategoryPage({
   let data = null;
   try {
     data = await getCategoryProducts(categorySlug);
-    console.log('Laboratory data:', data);
   } catch (_error) {
-    console.error('Laboratory error:', _error);
     return (
       <main className="p-8">
         <h1 className="text-2xl font-bold mb-4">Error</h1>
@@ -37,49 +37,35 @@ export default async function CategoryPage({
     );
   }
 
-  if (!data || !data.products || data.products.length === 0) {
-    console.log('Laboratory no data found for:', categorySlug);
-    return (
-      <main className="p-8 bg-gradient-to-br from-[#033E86] to-[#04274C]">
-        <h1 className="text-3xl font-bold mb-6 text-white">
-          {getCategoryDisplayTitle(categorySlug)}
-        </h1>
-        <div className="text-center text-white">
-          <p className="text-xl mb-4">No products available yet</p>
-          <p className="text-gray-300">
-            Products for this category will be added soon.
-          </p>
-        </div>
-      </main>
-    );
-  }
-
-  const hasSubcategories = data.products.some((p) => p.subcategory);
+  const hasSubcategories = data?.products.some((p) => p.subcategory);
   const grouped = hasSubcategories
-    ? groupBySubcategory(data.products)
-    : { All: data.products };
+    ? groupBySubcategory(data?.products || [])
+    : { All: data?.products };
 
   return (
-    <main className="p-8 bg-gradient-to-br from-[#033E86] to-[#04274C]">
-      <h1 className="text-3xl font-bold mb-6 text-white">
-        {getCategoryDisplayTitle(categorySlug)}
-      </h1>
-      {Object.entries(grouped).map(([subcat, products]) => (
-        <section key={subcat} className="mb-12">
-          {hasSubcategories && (
-            <h2 className="text-2xl font-semibold mb-4 text-white">
-              {subcat}
-            </h2>
-          )}
-          <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {products.map((product) => (
-              <li key={product.id}>
-                <CategoryProductCard product={product} />
-              </li>
-            ))}
-          </ul>
-        </section>
-      ))}
+    <main>
+      <PageHero title={`${getCategoryDisplayTitle(categorySlug)}.`} />
+
+      <section className="py-16 bg-gradient-to-br from-[#033E86] to-[#04274C] relative">
+        {Object.entries(grouped).map(([subcat, products]) => (
+          <Container key={subcat}>
+            <section className="mb-12">
+              {hasSubcategories && (
+                <h2 className="text-2xl font-bold mb-4 text-white">
+                  {subcat}
+                </h2>
+              )}
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {products?.map((product) => (
+                  <div key={product.id}>
+                    <CategoryProductCard product={product} />
+                  </div>
+                ))}
+              </div>
+            </section>
+          </Container>
+        ))}
+      </section>
     </main>
   );
 }
