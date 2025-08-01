@@ -6,7 +6,7 @@ import { PartnerCard } from './partner-card';
 
 function Partners() {
   return (
-    <section className="bg-secondary py-8 sm:py-12 lg:py-16 mt-16 sm:mt-24 lg:mt-32">
+    <section className="py-8 sm:py-12 lg:py-16 mt-16 sm:mt-24 lg:mt-32">
       <Container>
         <SectionHeader
           highlightedWord="International Partners"

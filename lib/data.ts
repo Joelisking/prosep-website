@@ -9,18 +9,26 @@ export const carouselImages = [
 ];
 
 // Partners data
-import partnerImg1 from '@/public/home/partners/1.png';
-import partnerImg2 from '@/public/home/partners/2.png';
-import partnerImg3 from '@/public/home/partners/3.png';
-import partnerImg4 from '@/public/home/partners/4.png';
-import partnerImg5 from '@/public/home/partners/5.png';
+import abus from '@/public/home/partners/abus.png';
+import albayati from '@/public/home/partners/albayati.png';
+import cabot from '@/public/home/partners/cabot.jpg';
+import eurogomma from '@/public/home/partners/eurogomma.png';
+import hayward from '@/public/home/partners/hayward.png';
+import icon from '@/public/home/partners/icon.png';
+import minelab from '@/public/home/partners/minelab.png';
+import sepor from '@/public/home/partners/sepor.png';
+import sepro from '@/public/home/partners/sepro.webp';
 
 export const partnersData = [
-  { id: 1, src: partnerImg1, alt: 'Partner 1' },
-  { id: 2, src: partnerImg2, alt: 'Partner 2' },
-  { id: 3, src: partnerImg3, alt: 'Partner 3' },
-  { id: 4, src: partnerImg4, alt: 'Partner 4' },
-  { id: 5, src: partnerImg5, alt: 'Partner 5' },
+  { id: 1, src: abus, alt: 'ABUS' },
+  { id: 2, src: albayati, alt: 'Albayati' },
+  { id: 3, src: cabot, alt: 'Cabot' },
+  { id: 4, src: eurogomma, alt: 'Eurogomma' },
+  { id: 5, src: hayward, alt: 'Hayward' },
+  { id: 6, src: icon, alt: 'Icon' },
+  { id: 7, src: minelab, alt: 'Minelab' },
+  { id: 8, src: sepor, alt: 'Sepor' },
+  { id: 9, src: sepro, alt: 'Sepro' },
 ];
 
 export const teamData = [

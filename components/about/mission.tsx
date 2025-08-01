@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import Container from '../shared/container';
-import img from '@/public/LooperGroup.svg';
 
 function Mission() {
   return (
@@ -23,8 +22,8 @@ function Mission() {
       <div className="absolute top-0 bottom-0 right-0 h-full w-full">
         <div className="relative h-full w-full">
           <img
-            src={img}
-            alt="svg"
+            src="/LooperGroup.svg"
+            alt="Decorative background pattern"
             className="h-full w-full object-contain object-right opacity-70 lg:opacity-100 transition-all duration-300"
           />
         </div>
