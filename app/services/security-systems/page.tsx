@@ -5,6 +5,7 @@ import { getTopProducts } from '@/lib/topProducts';
 import React from 'react';
 import ServiceCategories from '@/components/shared/service-categories';
 
+export const revalidate = 0;
 export default async function SecuritySystems() {
   const topProductsData = await getTopProducts('security-systems');
 

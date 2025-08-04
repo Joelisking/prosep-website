@@ -7,7 +7,7 @@ import React from 'react';
 import { CategoryProductCard } from '@/components/shared/category-product-card';
 import Container from '@/components/shared/container';
 import PageHero from '@/components/shared/hero';
-
+export const revalidate = 0;
 function groupBySubcategory(products: CategoryProduct[]) {
   const groups: Record<string, CategoryProduct[]> = {};
   for (const product of products) {

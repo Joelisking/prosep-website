@@ -4,7 +4,7 @@ import PageHero from '@/components/shared/hero';
 import OfferedServices from '@/components/shared/offered-services';
 import { getTopProducts } from '@/lib/topProducts';
 import React from 'react';
-
+export const revalidate = 0;
 export default async function LaboratoryInstruments() {
   const topProductsData = await getTopProducts(
     'laboratory-instruments'
