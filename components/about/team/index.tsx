@@ -6,6 +6,12 @@ export const revalidate = 0;
 
 async function Team() {
   const team = await getTeam();
+
+  // Don't render the section if team is empty
+  if (!team || team.length === 0) {
+    return null;
+  }
+
   return (
     <section className=" mt-16 md:mt-24 lg:mt-32" id="team">
       <Container>
